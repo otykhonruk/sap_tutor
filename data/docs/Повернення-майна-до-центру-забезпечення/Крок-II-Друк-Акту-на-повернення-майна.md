@@ -6,7 +6,7 @@
 
 **1. Увійдіть до системи ЛІС (SAP).**
 
-Див. деталі у розділі [["Вхід до системи"]{.underline}](#вхід-до-системи-загальні-кроки).
+Див. деталі у розділі ["Вхід до системи"](../%D0%9F%D0%BE%D1%87%D0%B0%D1%82%D0%BE%D0%BA-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8-%D1%83-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%96.md#вхід-до-системи-загальні-кроки).
 
 **2. Запустіть операцію друку Акту.**
 
@@ -14,19 +14,19 @@
 
 2.2. Натисніть кнопку-кокпіт "Друк Акту на повернення \[CP0411\]".
 
-![A screenshot of a computer Description automatically generated](media/media/image253.png){width="6.268055555555556in" height="2.691666666666667in"}
+![A screenshot of a computer Description automatically generated](../media/media/image253.png){width="6.268055555555556in" height="2.691666666666667in"}
 
-2.3. У полі "Документ закупівлі", вкажіть номер наряду на повернення майна та натисніть кнопку ![](media/media/image32.png){width="0.20328521434820648in" height="0.190579615048119in"} "Виконати" (або натисніть клавішу F8 на клавіатурі комп'ютера).
+2.3. У полі "Документ закупівлі", вкажіть номер наряду на повернення майна та натисніть кнопку ![](../media/media/image32.png){width="0.20328521434820648in" height="0.190579615048119in"} "Виконати" (або натисніть клавішу F8 на клавіатурі комп'ютера).
 
 Якщо ви забули номер наряду на повернення, скористайтесь системною транзакцією "me23n". При виконанні, транзакція покаже останній документ закупівлі (тобто, наряд на повернення), який ви створювали у системі.
 
 **3. Заповніть поля, необхідні для друку Акту.**
 
-![A screenshot of a computer Description automatically generated](media/media/image254.png){width="6.268055555555556in" height="2.7743055555555554in"}
+![A screenshot of a computer Description automatically generated](../media/media/image254.png){width="6.268055555555556in" height="2.7743055555555554in"}
 
-Після заповнення, натисніть кнопку ![](media/media/image76.png){width="0.1990343394575678in" height="0.1990343394575678in"} "Продовжити" у правому нижньому куті екрану.
+Після заповнення, натисніть кнопку ![](../media/media/image76.png){width="0.1990343394575678in" height="0.1990343394575678in"} "Продовжити" у правому нижньому куті екрану.
 
 **4. Роздрукуйте документ або збережіть його для подальшого друку.**
 
-![A screenshot of a computer Description automatically generated](media/media/image255.png){width="5.191304680664917in" height="2.8515944881889763in"}
+![A screenshot of a computer Description automatically generated](../media/media/image255.png){width="5.191304680664917in" height="2.8515944881889763in"}
 

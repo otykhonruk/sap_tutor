@@ -5,81 +5,81 @@
 
 Система ЛІС дозволяє експорт даних до файлу формату Microsoft Excel у декількох формах, одна з яких є максимально наближена до формату звіту 1/реч.
 
-![A screenshot of a spreadsheet Description automatically generated](media/media/image81.png){width="6.299212598425197in" height="3.937007874015748in"}
+![A screenshot of a spreadsheet Description automatically generated](../media/media/image81.png){width="6.299212598425197in" height="3.937007874015748in"}
 
 Щоб експортувати дані з еЗвіту у форматі звіту 1/реч, виконайте наступні кроки.
 
 1. Увійдіть у систему ЛІС.
 
-Див. деталі у розділі ["Вхід до системи: загальні кроки"](#вхід-до-системи-загальні-кроки).
+Див. деталі у розділі ["Вхід до системи: загальні кроки"](../%D0%9F%D0%BE%D1%87%D0%B0%D1%82%D0%BE%D0%BA-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8-%D1%83-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%96.md#вхід-до-системи-загальні-кроки).
 
 2. Відкрийте вікно "Робоче місце користувача".
 
-Див. розділ ["Початкове вікно роботи з системою"](#початкове-вікно-роботи-з-системою).
+Див. розділ ["Початкове вікно роботи з системою"](../%D0%9F%D0%BE%D1%87%D0%B0%D1%82%D0%BE%D0%BA-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8-%D1%83-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%96.md#початкове-вікно-роботи-з-системою).
 
 3. Сформуйте еЗвіт.
 
-Див. детальні кроки у розділі [["Формування еЗвіту у системі ЛІС"]{.underline}](#формування-езвіту-у-системі-ліс-кроки).
+Див. детальні кроки у розділі ["Формування еЗвіту у системі ЛІС"](%D0%A4%D0%BE%D1%80%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B5%D0%97%D0%B2%D1%96%D1%82%D1%83-%D1%83-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%96%D0%9B%D0%86%D0%A1-%D0%BA%D1%80%D0%BE%D0%BA%D0%B8.md#формування-езвіту-у-системі-ліс-кроки).
 
-4. У вікні еЗвіту, на верхній панелі інструментів, натисніть кнопку ![](media/media/image82.png){width="0.2361111111111111in" height="0.2361111111111111in"} "Друкувати".
+4. У вікні еЗвіту, на верхній панелі інструментів, натисніть кнопку ![](../media/media/image82.png){width="0.2361111111111111in" height="0.2361111111111111in"} "Друкувати".
 
-![A screenshot of a computer Description automatically generated](media/media/image83.png){width="4.634782370953631in" height="2.2066229221347333in"}
+![A screenshot of a computer Description automatically generated](../media/media/image83.png){width="4.634782370953631in" height="2.2066229221347333in"}
 
-5. У вікні "Підписанти", введіть дані про осіб, які повинні підписати роздрукований звіт. Потім, натисніть кнопку ![](media/media/image76.png){width="0.19951662292213473in" height="0.19951662292213473in"} "Продовжити".
+5. У вікні "Підписанти", введіть дані про осіб, які повинні підписати роздрукований звіт. Потім, натисніть кнопку ![](../media/media/image76.png){width="0.19951662292213473in" height="0.19951662292213473in"} "Продовжити".
 
 З технічної точки зору, для формування друкованої форм необов'язково заповнювати всі наявні поля підписантів. Втім, це може бути необхідно для подачі офіційного звіту до постачального органу або до органів військового управління.
 
-![A screenshot of a computer Description automatically generated](media/media/image84.png){width="6.299212598425197in" height="1.3661417322834646in"}
+![A screenshot of a computer Description automatically generated](../media/media/image84.png){width="6.299212598425197in" height="1.3661417322834646in"}
 
 6. Система може відкрити вікно "Безпека SAP GUI", один чи два рази. Натисніть кнопку "Дозволити" кожного разу, щоб надати системі ЛІС доступ до файлової системи комп'ютера.
 
 Вікно "Безпека SAP GUI" демонструється кожен раз, коли система намагається зберегти файл у файлової системи комп'ютера. Такі дії системи не несуть загрози з точки зору безпеки даних.
 
-![A screenshot of a computer Description automatically generated](media/media/image85.png){width="4.173912948381452in" height="1.5865266841644794in"}
+![A screenshot of a computer Description automatically generated](../media/media/image85.png){width="4.173912948381452in" height="1.5865266841644794in"}
 
 7. Експортований файл відкриється у програмі Excel. Збережіть файл у те місце на жорсткому диску, звідки вам дуже зручно потім роздрукувати файл або відправити на переносний пристрій (флеш-накопичувач).
 
-![A screenshot of a spreadsheet Description automatically generated](media/media/image81.png){width="6.299212598425197in" height="3.937007874015748in"}
+![A screenshot of a spreadsheet Description automatically generated](../media/media/image81.png){width="6.299212598425197in" height="3.937007874015748in"}
 
 ### Експорт у таблицю з простим форматуванням
 
 Окрім експорту у форматі звіту 1/реч, система ЛІС також дозволяє експортувати дані до Microsoft Excel у вигляді таблиці з простим форматуванням. Такий формат може бути корисним для швидкої обробки даних з еЗвіту у Excel.
 
-![A screenshot of a computer Description automatically generated](media/media/image86.png){width="4.886956474190726in" height="3.6612106299212597in"}
+![A screenshot of a computer Description automatically generated](../media/media/image86.png){width="4.886956474190726in" height="3.6612106299212597in"}
 
 Щоб експортувати дані з еЗвіту у форматі звіту 1/реч, виконайте наступні кроки.
 
 1. Увійдіть у систему ЛІС.
 
-Див. деталі у розділі ["Вхід до системи: загальні кроки"](#вхід-до-системи-загальні-кроки).
+Див. деталі у розділі ["Вхід до системи: загальні кроки"](../%D0%9F%D0%BE%D1%87%D0%B0%D1%82%D0%BE%D0%BA-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8-%D1%83-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%96.md#вхід-до-системи-загальні-кроки).
 
 2. Відкрийте вікно "Робоче місце користувача".
 
-Див. розділ ["Початкове вікно роботи з системою"](#початкове-вікно-роботи-з-системою).
+Див. розділ ["Початкове вікно роботи з системою"](../%D0%9F%D0%BE%D1%87%D0%B0%D1%82%D0%BE%D0%BA-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8-%D1%83-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%96.md#початкове-вікно-роботи-з-системою).
 
 3. Сформуйте еЗвіт ("Звіт щодо наявності та руху речового майна \[CP0135\]").
 
-Див. детальні кроки у розділі [["Формування еЗвіту у системі ЛІС"]{.underline}](#формування-езвіту-у-системі-ліс-кроки).
+Див. детальні кроки у розділі ["Формування еЗвіту у системі ЛІС"](%D0%A4%D0%BE%D1%80%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B5%D0%97%D0%B2%D1%96%D1%82%D1%83-%D1%83-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%96%D0%9B%D0%86%D0%A1-%D0%BA%D1%80%D0%BE%D0%BA%D0%B8.md#формування-езвіту-у-системі-ліс-кроки).
 
-4. На панелі інструментів еЗвіту, натисніть кнопку ![](media/media/image87.png){width="0.2701891951006124in" height="0.18372922134733158in"} "Експорт" та оберіть "Електронна таблиця".
+4. На панелі інструментів еЗвіту, натисніть кнопку ![](../media/media/image87.png){width="0.2701891951006124in" height="0.18372922134733158in"} "Експорт" та оберіть "Електронна таблиця".
 
-![A screenshot of a computer Description automatically generated](media/media/image88.png){width="3.8434787839020124in" height="2.7208398950131234in"}
+![A screenshot of a computer Description automatically generated](../media/media/image88.png){width="3.8434787839020124in" height="2.7208398950131234in"}
 
 5. У вікні "Вибрати розрахунок таблиці", оберіть варіант за замовчуванням: "Вибрати з усіх доступних форматів" \> Excel -- формат Office Open XML (XLSX)".
 
-![A screenshot of a computer Description automatically generated](media/media/image89.png){width="2.8in" height="1.6995352143482065in"}
+![A screenshot of a computer Description automatically generated](../media/media/image89.png){width="2.8in" height="1.6995352143482065in"}
 
 6. Оберіть папку на комп'ютері, куди буде збережено результуючий файл Excel, та вкажіть ім'я (назву) цього файлу.
 
-![A screenshot of a computer Description automatically generated](media/media/image90.png){width="3.2869564741907262in" height="2.5229505686789153in"}
+![A screenshot of a computer Description automatically generated](../media/media/image90.png){width="3.2869564741907262in" height="2.5229505686789153in"}
 
 7. Система може відкрити вікно "Безпека SAP GUI", один чи два рази. Натисніть кнопку "Дозволити" кожного разу, щоб надати системі ЛІС доступ до файлової системи комп'ютера.
 
 Вікно "Безпека SAP GUI" демонструється кожен раз, коли система намагається зберегти файл у файлової системи комп'ютера. Такі дії системи не несуть загрози з точки зору безпеки даних.
 
-![A screenshot of a computer Description automatically generated](media/media/image85.png){width="4.173912948381452in" height="1.5865266841644794in"}
+![A screenshot of a computer Description automatically generated](../media/media/image85.png){width="4.173912948381452in" height="1.5865266841644794in"}
 
 8. Збережений файл автоматично відкриється у застосунку Excel.
 
-![A screenshot of a computer Description automatically generated](media/media/image86.png){width="6.791305774278215in" height="5.087910104986877in"}
+![A screenshot of a computer Description automatically generated](../media/media/image86.png){width="6.791305774278215in" height="5.087910104986877in"}
 
