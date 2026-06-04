@@ -1,8 +1,9 @@
 import time
+from pathlib import Path
 
 import httpx
 
-from sap_tutor.files import read_seen_messages, write_seen_messages
+from sap_tutor.history import MessageHistory
 
 
 DEFAULT_SIGNAL_RPC_URL = "http://127.0.0.1:8080/api/v1/rpc"
@@ -85,11 +86,22 @@ def send_signal_message(rpc_url, recipient, message, group_id=None):
     signal_rpc_call(rpc_url, "send", params)
 
 
-def run(answer_fn, rpc_url=DEFAULT_SIGNAL_RPC_URL, poll_interval=2.0, test_mode=False, multi_account=False, account=None):
+def run(
+    answer_fn,
+    rpc_url=DEFAULT_SIGNAL_RPC_URL,
+    poll_interval=2.0,
+    test_mode=False,
+    multi_account=False,
+    account=None,
+    db_path=None,
+):
     if multi_account and not account:
         raise SystemExit("Signal account is required")
 
-    seen_messages = read_seen_messages()
+    history = MessageHistory(db_path=db_path)
+
+    # Automatically migrate from old JSON file if present
+    history.migrate_from_json(Path(".signal-bot-seen.json"))
 
     while True:
         try:
@@ -112,13 +124,28 @@ def run(answer_fn, rpc_url=DEFAULT_SIGNAL_RPC_URL, poll_interval=2.0, test_mode=
 
         for message in normalize_received_messages(result):
             key = message_key(message["envelope"])
-            if key in seen_messages:
+            if history.is_seen(key):
                 continue
 
-            seen_messages.append(key)
-            write_seen_messages(seen_messages)
-
             should_send, query = should_reply(message, test_mode)
+            envelope = message["envelope"]
+            timestamp = (
+                envelope.get("timestamp")
+                or envelope.get("dataMessage", {}).get("timestamp")
+                or 0
+            )
+
+            # Store message in history as seen immediately to avoid processing it again
+            history.add_message(
+                message_key=key,
+                source=message["source"] or "unknown",
+                timestamp=timestamp,
+                body=message["body"],
+                group_id=message["group_id"],
+                is_faq=should_send,
+                query=query,
+            )
+
             if not should_send:
                 continue
 
@@ -137,6 +164,9 @@ def run(answer_fn, rpc_url=DEFAULT_SIGNAL_RPC_URL, poll_interval=2.0, test_mode=
                     message=reply_text,
                     group_id=message["group_id"],
                 )
+
+                # Store the reply in SQLite DB
+                history.update_reply(key, reply_text)
 
                 target = message["group_id"] or message["source"]
                 print(f"Answered message from {target}")
