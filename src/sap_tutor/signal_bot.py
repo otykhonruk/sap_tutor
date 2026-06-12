@@ -6,30 +6,7 @@ import httpx
 from sap_tutor.history import MessageHistory
 
 
-DEFAULT_SIGNAL_RPC_URL = "http://127.0.0.1:8080/api/v1/rpc"
-
-
-def signal_rpc_call(rpc_url, method, params):
-    payload = {
-        "jsonrpc": "2.0",
-        "id": int(time.time() * 1000),
-        "method": method,
-        "params": params,
-    }
-
-    try:
-        response = httpx.post(rpc_url, json=payload, timeout=60)
-        response.raise_for_status()
-        data = response.json()
-    except httpx.HTTPStatusError as exc:
-        raise SystemExit(f"signal-cli RPC HTTP error {exc.response.status_code}: {exc.response.text}") from exc
-    except httpx.HTTPError as exc:
-        raise SystemExit(f"signal-cli RPC connection error: {exc}") from exc
-
-    if data.get("error"):
-        raise RuntimeError(f"signal-cli RPC error: {data['error']}")
-
-    return data.get("result")
+DEFAULT_SIGNAL_API_URL = "http://127.0.0.1:8080"
 
 
 def message_key(envelope):
@@ -77,26 +54,30 @@ def should_reply(message, test_mode):
     return False, None
 
 
-def send_signal_message(rpc_url, recipient, message, group_id=None):
-    params = {"message": message}
-    if group_id:
-        params["groupId"] = group_id
-    else:
-        params["recipient"] = [recipient]
-    signal_rpc_call(rpc_url, "send", params)
+def send_signal_message(api_url, account, recipient, message, group_id=None):
+    payload = {
+        "message": message,
+        "number": account,
+        "recipients": [group_id] if group_id else [recipient],
+    }
+    try:
+        response = httpx.post(f"{api_url}/v2/send", json=payload, timeout=60)
+        response.raise_for_status()
+    except httpx.HTTPError as exc:
+        print(f"Failed to send message via REST API: {exc}")
 
 
 def run(
     answer_fn,
-    rpc_url=DEFAULT_SIGNAL_RPC_URL,
+    api_url=DEFAULT_SIGNAL_API_URL,
     poll_interval=2.0,
     test_mode=False,
     multi_account=False,
     account=None,
     db_path=None,
 ):
-    if multi_account and not account:
-        raise SystemExit("Signal account is required")
+    if not account:
+        raise SystemExit("Signal account is required for REST API. Set SIGNAL_ACCOUNT in .env")
 
     history = MessageHistory(db_path=db_path)
 
@@ -105,22 +86,18 @@ def run(
 
     while True:
         try:
-            params = {
-                "timeout": max(1, int(poll_interval)),
-                "maxMessages": 100,
-            }
-            if multi_account:
-                params["account"] = account
-
-            result = signal_rpc_call(rpc_url, "receive", params)
-        except RuntimeError as exc:
-            message = str(exc)
-            if "already being received" in message:
-                raise SystemExit(
-                    "signal-cli daemon is not in manual receive mode. "
-                    "Start it with --receive-mode=manual and run the bot again."
-                ) from exc
-            raise
+            timeout_val = max(1, int(poll_interval))
+            response = httpx.get(
+                f"{api_url}/v1/receive/{account}",
+                params={"timeout": timeout_val},
+                timeout=timeout_val + 5
+            )
+            response.raise_for_status()
+            result = response.json()
+        except httpx.HTTPError as exc:
+            print(f"signal-cli REST connection error: {exc}")
+            time.sleep(poll_interval)
+            continue
 
         for message in normalize_received_messages(result):
             key = message_key(message["envelope"])
@@ -159,7 +136,8 @@ def run(
                         reply_text += "\n\nДжерела: " + ", ".join(result["sources"])
 
                 send_signal_message(
-                    rpc_url=rpc_url,
+                    api_url=api_url,
+                    account=account,
                     recipient=message["source"],
                     message=reply_text,
                     group_id=message["group_id"],

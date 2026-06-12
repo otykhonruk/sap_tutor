@@ -5,7 +5,7 @@ from cyclopts import App
 from sap_tutor.files import DEFAULT_DOCS_DIR
 from sap_tutor.history import MessageHistory
 from sap_tutor.providers import get_provider
-from sap_tutor.signal_bot import DEFAULT_SIGNAL_RPC_URL, run as run_signal_bot
+from sap_tutor.signal_bot import DEFAULT_SIGNAL_API_URL, run as run_signal_bot
 from sap_tutor.storages import get_storage
 
 
@@ -113,7 +113,7 @@ def signal_bot(
     model=None,
     embedding=None,
     embedding_model=None,
-    rpc_url=os.environ.get("SIGNAL_RPC_URL", DEFAULT_SIGNAL_RPC_URL),
+    api_url=os.environ.get("SIGNAL_API_URL", DEFAULT_SIGNAL_API_URL),
     poll_interval=2.0,
     test_mode=False,
     multi_account=False,
@@ -136,7 +136,7 @@ def signal_bot(
 
     run_signal_bot(
         answer_fn=answer_fn,
-        rpc_url=rpc_url,
+        api_url=api_url,
         poll_interval=poll_interval,
         test_mode=test_mode,
         multi_account=multi_account,

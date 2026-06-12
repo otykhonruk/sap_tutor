@@ -21,19 +21,16 @@ class MessageHistory:
 
     @staticmethod
     def get_default_db_path() -> Path:
-        # Standard volume directory inside Docker
-        docker_volume_dir = Path("/root/.local/share/signal-cli")
-        if docker_volume_dir.is_dir():
-            return docker_volume_dir / "signal_bot_history.db"
+        # Standard data directory for docker container
+        docker_data_dir = Path("/app/_data")
+        if Path("/app").is_dir():
+            docker_data_dir.mkdir(parents=True, exist_ok=True)
+            return docker_data_dir / "signal_bot_history.db"
 
-        # Fallback to local home directory path
-        local_dir = Path.home() / ".local" / "share" / "signal-cli"
-        try:
-            local_dir.mkdir(parents=True, exist_ok=True)
-            return local_dir / "signal_bot_history.db"
-        except Exception:
-            # Fallback to current working directory
-            return Path.cwd() / "signal_bot_history.db"
+        # Fallback to current working directory _data folder
+        local_dir = Path.cwd() / "_data"
+        local_dir.mkdir(parents=True, exist_ok=True)
+        return local_dir / "signal_bot_history.db"
 
     def _init_db(self):
         with self.conn:
