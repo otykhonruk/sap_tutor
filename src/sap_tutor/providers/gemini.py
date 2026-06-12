@@ -4,7 +4,7 @@ from google.genai import types
 from sap_tutor.storages import get_storage
 
 
-DEFAULT_MODEL = "gemini-2.5-flash"
+DEFAULT_MODEL = "gemini-3.5-flash"
 
 
 def answer(query, model=DEFAULT_MODEL, storage=None, limit=5, embedding=None, embedding_model=None):
