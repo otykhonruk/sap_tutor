@@ -1,6 +1,12 @@
-.obsidian
-.DS_Store
 *.pyc
 __pycache__
 *~
+
+.env
+.antigravitycli
+.obsidian
+.DS_Store
+
 _data
+raw
+scratch
